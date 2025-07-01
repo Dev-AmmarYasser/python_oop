@@ -54,14 +54,68 @@ member_one = Member("Ammar", 'Yasser', 'Elhoseiny')
 member_two = Member("hello", 'Yasser', 'Elhoseiny')
 
 
-Member.show_users_num()
+# Member.show_users_num()
 
-print(member_one.full_name())
-print(Member.full_name(member_one))
+# print(member_one.full_name())
+# print(Member.full_name(member_one))
 
 
 print('-' * 15)
 
-Member.say_hello()
+# Member.say_hello()
 
-Member.hello_user('Ammar')
+# Member.hello_user('Ammar')
+
+
+class Skill:
+    def __init__(self):
+        self.skills = ['html', 'css', 'js']
+
+    def __str__(self):
+        return f"My skills : {self.skills}"
+
+    def __len__(self):
+        return len(self.skills)
+
+
+profile = Skill()
+
+# print(len(profile))
+
+# profile.skills.append('python')
+
+
+# print(profile)
+# print(len(profile))
+# print(profile.__class__)
+
+# print('-' * 10)
+
+
+# Base Class
+class Food:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        print(
+            f'Instance {self.name} created from base class with price {self.price}')
+
+    def eat(self):
+        print('eat method from base class')
+
+
+# Derived Class
+class Apple(Food):
+    def __init__(self, name, price, amount):
+        # Food.__init__(self, name, price)
+        super().__init__(name, price)
+        self.amount = amount
+        print(
+            f'Instance {self.name} created from derived class with price {self.price} , amount => {self.amount}')
+        # Food.eat(self)
+
+
+food_two = Apple('Pizza', 150, 3)
+
+
+food_two.eat()
