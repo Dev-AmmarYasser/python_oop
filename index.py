@@ -119,3 +119,159 @@ food_two = Apple('Pizza', 150, 3)
 
 
 food_two.eat()
+
+
+# class Dog:
+#     species = "Canis familiaris"
+
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def __str__(self):
+#         return f"{self.name} is {self.age} years old"
+
+#     def speak(self, sound):
+#         return f"{self.name} says {sound}"
+
+
+# class JackRussellTerrier(Dog):
+
+#     def speak(self, sound="Arf"):
+#         return super().speak("Arf2")
+#         # return f"{self.name} barks: {sound}"
+
+
+# class Dachshund(Dog):
+#     def __init__(self, name, age, message):
+#         super().__init__(name, age)
+#         self.msg = message
+#         print(self.msg)
+
+#     def speak(self, sound="How"):
+#         return f"{self.name} says {sound}"
+
+
+# class Bulldog(Dog):
+#     pass
+
+
+# miles = JackRussellTerrier("Miles", 4)
+# buddy = Dachshund("Buddy", 9, "Hello World")
+# jack = Bulldog("Jack", 3)
+# jim = Bulldog("Jim", 5)
+
+# print('-' * 10)
+
+# print(miles.species)
+
+# print(miles.name)
+# print(miles.age)
+
+# print('-' * 10)
+
+# print(buddy.name)
+# print(buddy.age)
+# print(buddy.msg)
+
+# print('-' * 10)
+
+# print(isinstance(miles, JackRussellTerrier))
+
+# print(isinstance(miles, Dog))
+
+# print('-' * 10)
+
+# print(miles.speak())
+
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+
+
+class GoldenRetriever(Dog):
+    def speak(self, sound="Bark"):
+        return super().speak(sound)
+
+
+dog1 = GoldenRetriever("Dog1", 4)
+
+# print(dog1.speak())
+
+
+class BaseOne:
+    def __init__(self):
+        print('1')
+
+    def func_one(self):
+        print('1')
+
+
+class BaseTwo:
+    def __init__(self):
+        print('2')
+
+    def func_two(self):
+        print('2')
+
+
+class Derived(BaseOne, BaseTwo):
+    pass
+
+
+print('-'*15)
+
+my_var = Derived()
+
+# print(Derived.mro())
+
+my_var.func_one()
+my_var.func_two()
+
+
+class Base:
+    pass
+
+
+class DerivedOne(Base):
+    pass
+
+
+class DerivedTwo(DerivedOne):
+    pass
+
+
+# Polymorphism
+
+# Abstract Base Class (ABC)
+class A:
+    def do_something(self):
+        print('From Class A')
+
+        raise NotImplementedError("Please Implement This Method In Your Class")
+
+
+class B(A):
+    def do_something(self):
+        print("From Class B")
+
+
+class C(A):
+    def do_something(self):
+        print("From Class C")
+
+
+my_instance = C()
+
+print('-'*15)
+
+my_instance.do_something()
